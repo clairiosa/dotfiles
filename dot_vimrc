@@ -1,0 +1,48 @@
+" Install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+" vimrc start
+call plug#begin('~/.vim/plugged')
+	Plug 'itchyny/lightline.vim'
+	Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+	Plug 'mengelbrecht/lightline-bufferline'
+	Plug 'preservim/nerdtree'
+call plug#end()
+
+set number                    		" Show current line number
+set relativenumber             		" Show relative line numbers
+set laststatus=2	      		" Show status bar
+set noshowmode                 		" Hide --INSERT-- etc
+set showtabline=2			" Shows buffers at top
+
+set termguicolors			" For catppuccin theme
+colorscheme catppuccin_frappe 		" colorscheme
+
+let g:lightline = {
+	\ 'colorscheme': 'catppuccin_frappe',
+        \ 'active': {
+        \       'left': [ [ 'mode', 'paste' ],
+        \                 [ 'readonly', 'relativepath', 'modified', 'helloworld' ] ],
+        \       'right': [ [ 'lineinfo','filetype' ] ]
+        \ },
+        \ 'inactive': {
+        \       'right': [ [ 'lineinfo','filetype' ] ]
+        \ },
+	\ 'tabline': {
+	\ 	'left': [ ['bufnum', 'buffers'] ],
+	\ 	'right': [ ['bufnum'] ]
+	\ },
+	\ 'component_expand': {
+	\ 	'buffers': 'lightline#bufferline#buffers'
+	\ },
+	\ 'component_type': {
+	\ 	'buffers': 'tabsel'
+	\ }
+        \ }
+
+
