@@ -1,0 +1,9 @@
+### LS -> EZA
+alias ls='eza'
+alias ll='eza -l'
+alias la='eza -l'
+alias l='eza -la'
+alias lsa='eza -la'
+
+### chezmoi
+alias cm='chezmoi'
