@@ -1,9 +1,18 @@
-### LS -> EZA
+##################
+# Replacement Aliases
+#
+# These are alises that replace built-in tools with more modern ones.
+
+### LS -> eza
 alias ls='eza'
 alias ll='eza -l'
-alias la='eza -l'
+alias la='eza -la'
 alias l='eza -la'
 alias lsa='eza -la'
 
+### cat -> bat
+alias cat='bat'
+
 ### chezmoi
 alias cm='chezmoi'
+
